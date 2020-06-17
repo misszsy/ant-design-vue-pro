@@ -23,22 +23,23 @@
 
 <script>
 import SubMenu from "./SubMenu";
+import { check } from "../utils/auth";
 
 export default {
   props: {
     theme: {
       type: String,
-      default: "dark",
-    },
+      default: "dark"
+    }
   },
   components: {
-    "sub-menu": SubMenu,
+    "sub-menu": SubMenu
   },
   watch: {
     "$route.path": function(val) {
       this.selectedKeys = this.selectedKeysMap[val];
       this.openKeys = this.collapsed ? [] : this.openKeysMap[val];
-    },
+    }
   },
   data() {
     this.selectedKeysMap = {};
@@ -60,7 +61,10 @@ export default {
     getMenuData(routes = [], parentKeys = [], selectedKey) {
       const menuData = [];
       //循环遍历路由列表
-      routes.forEach((item) => {
+      for (let item of routes) {
+        if (item.meta && item.meta.authority && !check(item.meta.authority)) {
+          break;
+        }
         //当前路由对象有name名称并且hideInMenu不隐藏时开始处理
         if (item.name && !item.hideInMenu) {
           this.openKeysMap[item.path] = parentKeys;
@@ -74,7 +78,7 @@ export default {
             //重新递归遍历item的children属性并把处理好的数据赋值给新对象 newItem的children属性
             newItem.children = this.getMenuData(item.children, [
               ...parentKeys,
-              item.path,
+              item.path
             ]);
           } else {
             this.getMenuData(
@@ -96,9 +100,9 @@ export default {
             ...this.getMenuData(item.children, [...parentKeys, item.path])
           );
         }
-      });
+      }
       return menuData;
-    },
-  },
+    }
+  }
 };
 </script>
