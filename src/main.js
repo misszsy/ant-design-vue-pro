@@ -6,7 +6,15 @@ import store from "./store";
 //import {Button} from "ant-design-vue";
 //import "ant-design-vue/dist/antd.less";
 //单独引入某个组件,结合babel.config.js的plugins 配置
-import { Button, Layout, Icon, Drawer, Radio, Menu } from "ant-design-vue";
+import {
+  Button,
+  Layout,
+  Icon,
+  Drawer,
+  Radio,
+  Menu,
+  Form
+} from "ant-design-vue";
 import Authorized from "./components/Authorized";
 import Auth from "./directives/auth";
 
@@ -18,6 +26,7 @@ Vue.use(Icon);
 Vue.use(Drawer);
 Vue.use(Radio);
 Vue.use(Menu);
+Vue.use(Form);
 //全局注册权限指令
 Vue.use(Auth);
 //注册全局权限控制组件
