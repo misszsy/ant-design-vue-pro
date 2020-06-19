@@ -13,7 +13,9 @@ import {
   Drawer,
   Radio,
   Menu,
-  Form
+  Form,
+  Input,
+  Avatar
 } from "ant-design-vue";
 import Authorized from "./components/Authorized";
 import Auth from "./directives/auth";
@@ -27,6 +29,8 @@ Vue.use(Drawer);
 Vue.use(Radio);
 Vue.use(Menu);
 Vue.use(Form);
+Vue.use(Input);
+Vue.use(Avatar);
 //全局注册权限指令
 Vue.use(Auth);
 //注册全局权限控制组件
