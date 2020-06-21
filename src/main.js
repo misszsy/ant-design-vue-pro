@@ -38,6 +38,11 @@ Vue.use(Auth);
 //注册全局权限控制组件
 Vue.component("Authorized", Authorized);
 
+const IconFont = Icon.createFromIconfontCN({
+  scriptUrl: "//" //在iconfont.cn 上的图标地址
+});
+Vue.component("IconFont", IconFont);
+
 new Vue({
   router,
   store,
