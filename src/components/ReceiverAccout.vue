@@ -5,7 +5,7 @@
       <a-select-option value="bank">银行账号</a-select-option>
     </a-select>
     <a-input
-      style="width:calc(100%-130px)"
+      style="width:500px"
       v-model="number"
       @change="handleNumberChange"
     ></a-input>
