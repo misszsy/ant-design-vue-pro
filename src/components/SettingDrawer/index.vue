@@ -53,4 +53,18 @@ export default {
   }
 };
 </script>
-<style lange="less" src="./index.less"></style>
+<style scoped>
+.setting-drawer-handle {
+  position: absolute;
+  top: 300px;
+  right: 300px;
+  width: 50px;
+  height: 50px;
+  background: "#1DA57A";
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 3px 0 0 3px;
+}
+</style>
